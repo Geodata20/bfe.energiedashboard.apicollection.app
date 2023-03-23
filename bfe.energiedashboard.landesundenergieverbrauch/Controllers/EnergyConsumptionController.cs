@@ -1,8 +1,5 @@
 using bfe.energiedashboard.landesundenergieverbrauch.Models;
-using CsvHelper;
 using Microsoft.AspNetCore.Mvc;
-using System.Globalization;
-using System.Net;
 
 namespace bfe.energiedashboard.landesundenergieverbrauch.Controllers
 {
@@ -18,7 +15,7 @@ namespace bfe.energiedashboard.landesundenergieverbrauch.Controllers
         }
 
 
-        [HttpGet(Name = "Get")]
+        [HttpGet(Name = "GetEnergyConsumption")]
         public IEnumerable<EnergyConsuptionNationalAndEnduserModel> Get()
         {
             // load csv from url into model
@@ -26,7 +23,7 @@ namespace bfe.energiedashboard.landesundenergieverbrauch.Controllers
 
             var csvLoader = new CsvDataAccessor();
 
-            return csvLoader.GetCSVFromUrl(csvfileUrl);
+            return csvLoader.GetCSVFromUrl<EnergyConsuptionNationalAndEnduserModel>(csvfileUrl);
         }
 
       

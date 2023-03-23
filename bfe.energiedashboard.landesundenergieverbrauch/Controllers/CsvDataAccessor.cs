@@ -9,20 +9,7 @@ namespace bfe.energiedashboard.landesundenergieverbrauch.Controllers
     public class CsvDataAccessor
     {
 
-        public string GetCSV(string url)
-        {
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
-            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-
-            StreamReader sr = new StreamReader(resp.GetResponseStream());
-            string results = sr.ReadToEnd();
-            sr.Close();
-
-            return results;
-        }
-
-
-        public IEnumerable<EnergyConsuptionNationalAndEnduserModel> GetCSVFromUrl(string url)
+        public IEnumerable<T> GetCSVFromUrl<T>(string url)
         {
             var result = new List<EnergyConsuptionNationalAndEnduserModel>();
 
@@ -32,7 +19,7 @@ namespace bfe.energiedashboard.landesundenergieverbrauch.Controllers
             using (var reader = new StreamReader(resp.GetResponseStream()))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                return  csv.GetRecords<EnergyConsuptionNationalAndEnduserModel>().ToList();
+                return  csv.GetRecords<T>().ToList();
             }
         }
     }
