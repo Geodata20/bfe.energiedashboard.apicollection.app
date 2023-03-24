@@ -1,0 +1,43 @@
+﻿@page "/fetchdatagasflows"
+@using bfe.energyBlazorDemo.Data
+@using bfe.Energy.Api
+@inject GasDailyFlowsService GasFlowService
+
+
+<PageTitle>Gas Import</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">Tägliche Gasflüsse</MudText>
+<MudText Class="mb-8">This component demonstrates fetching data from a single api.</MudText>
+@if (gasImports == null)
+{
+    <MudProgressCircular Color="Color.Default" Indeterminate="true" />
+}
+else
+{
+    <MudTable Items="gasImports" Hover="true" SortLabel="Sort By" Elevation="0">
+        <HeaderContent>
+            <MudTh><MudTableSortLabel InitialDirection="SortDirection.Ascending" SortBy="new Func<DailyGasFlowInAndOutOfCHModel, object>(x=>x.Datum)">Datum</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<DailyGasFlowInAndOutOfCHModel, object>(x=>x.AT_CH_GWh)">Importiert von AT (GWh)</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<DailyGasFlowInAndOutOfCHModel, object>(x=>x.CH_AT_GWh)">Exportiert an AT (GWh)</MudTableSortLabel></MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Datum">@context.Datum</MudTd>
+            <MudTd DataLabel="Importiert von AT (GWh)">@context.AT_CH_GWh</MudTd>
+            <MudTd DataLabel="Exportiert an AT (GWh)">@context.CH_AT_GWh</MudTd>
+        </RowTemplate>
+        <PagerContent>
+            <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+        </PagerContent>
+    </MudTable>
+}
+
+
+@code {
+    private List<DailyGasFlowInAndOutOfCHModel>? gasImports;
+
+    protected override async Task OnInitializedAsync()
+    {
+        gasImports = await GasFlowService.GetGasFlowAsync();
+
+    }
+}

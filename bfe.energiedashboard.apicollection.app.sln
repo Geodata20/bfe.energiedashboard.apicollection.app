@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bfe.energiedashboard", "bfe.energiedashboard\bfe.energiedashboard.csproj", "{A0B03076-1F4D-46CB-B12D-1104A5C7A9AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bfe.energyBlazorDemo", "bfe.energyBlazorDemo\bfe.energyBlazorDemo.csproj", "{920F6C13-2796-43A0-8F89-68ED4C32729E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bfe.energyBlazorDemo", "bfe.energyBlazorDemo\bfe.energyBlazorDemo.csproj", "{920F6C13-2796-43A0-8F89-68ED4C32729E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

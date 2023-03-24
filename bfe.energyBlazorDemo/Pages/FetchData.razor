@@ -1,29 +1,29 @@
 ﻿@page "/fetchdata"
 @using bfe.energyBlazorDemo.Data
-@inject WeatherForecastService ForecastService
+@using bfe.Energy.Api
+@inject GasImportExportService GasImexService
 
-<PageTitle>Weather forecast</PageTitle>
 
-<MudText Typo="Typo.h3" GutterBottom="true">Weather forecast</MudText>
-<MudText Class="mb-8">This component demonstrates fetching data from the server.</MudText>
-@if (forecasts == null)
+<PageTitle>Gas Import</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">Gas Import</MudText>
+<MudText Class="mb-8">This component demonstrates fetching data from a single api.</MudText>
+@if (gasImports == null)
 {
     <MudProgressCircular Color="Color.Default" Indeterminate="true" />
 }
 else
 {
-    <MudTable Items="forecasts" Hover="true" SortLabel="Sort By" Elevation="0">
+    <MudTable Items="gasImports" Hover="true" SortLabel="Sort By" Elevation="0">
         <HeaderContent>
-            <MudTh><MudTableSortLabel InitialDirection="SortDirection.Ascending" SortBy="new Func<WeatherForecast, object>(x=>x.Date)">Date</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel SortBy="new Func<WeatherForecast, object>(x=>x.TemperatureC)">Temp. (C)</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel SortBy="new Func<WeatherForecast, object>(x=>x.TemperatureF)">Temp. (F)</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel SortBy="new Func<WeatherForecast, object>(x=>x.Summary!)">Summary</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel InitialDirection="SortDirection.Ascending" SortBy="new Func<GasNettoImportModel, object>(x=>x.Jahr)">Jahr</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<GasNettoImportModel, object>(x=>x.Monat)">Monat</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortBy="new Func<GasNettoImportModel, object>(x=>x.Importierte_Energie_GWh)">Importierte Energie (GWh)</MudTableSortLabel></MudTh>
         </HeaderContent>
         <RowTemplate>
-            <MudTd DataLabel="Date">@context.Date</MudTd>
-            <MudTd DataLabel="Temp. (C)">@context.TemperatureC</MudTd>
-            <MudTd DataLabel="Temp. (F)">@context.TemperatureF</MudTd>
-            <MudTd DataLabel="Summary">@context.Summary</MudTd>
+            <MudTd DataLabel="Jahr">@context.Jahr</MudTd>
+            <MudTd DataLabel="Monat">@context.Monat</MudTd>
+            <MudTd DataLabel="Importierte Energie (GWh)">@context.Importierte_Energie_GWh</MudTd>
         </RowTemplate>
         <PagerContent>
             <MudTablePager PageSizeOptions="new int[]{50, 100}" />
@@ -33,10 +33,11 @@ else
 
 
 @code {
-    private WeatherForecast[]? forecasts;
+    private List<GasNettoImportModel>? gasImports;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        gasImports = await GasImexService.GetGasImportAsync();
+
     }
 }

@@ -12,6 +12,8 @@ StaticWebAssetsLoader.UseStaticWebAssets(builder.Environment, builder.Configurat
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddSingleton<GasImportExportService>();
+builder.Services.AddSingleton<GasDailyFlowsService>();
 builder.Services.AddMudServices();
 
 var app = builder.Build();
