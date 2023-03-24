@@ -10,22 +10,22 @@ namespace bfe.energiedashboard.landesundenergieverbrauch.Controllers
     public class GasNettoImportController : ControllerBase
     {
         private readonly ILogger<GasNettoImportController> _logger;
+        // load csv from url into model
+        private readonly string _csvUrl;
 
         public GasNettoImportController(ILogger<GasNettoImportController> logger)
         {
             _logger = logger;
+            _csvUrl = "https://bfe-energy-dashboard-ogd.s3.amazonaws.com/ogd111_gas_nettoimport.csv";
         }
 
 
         [HttpGet(Name = "GetGasNettoImport")]
         public IEnumerable<GasNettoImportModel> Get()
         {
-            // load csv from url into model
-            string csvfileUrl = "https://bfe-energy-dashboard-ogd.s3.amazonaws.com/ogd111_gas_nettoimport.csv";
-
             var csvLoader = new CsvDataAccessor();
 
-            var result = csvLoader.GetCSVFromUrl<GasNettoImportModel>(csvfileUrl);
+            var result = csvLoader.GetCSVFromUrl<GasNettoImportModel>(_csvUrl);
 
             return result;
         }
@@ -34,12 +34,9 @@ namespace bfe.energiedashboard.landesundenergieverbrauch.Controllers
         [HttpGet("{startYear}/{endYear}",Name = "GetGasNettoImportByYearRange")]
         public IEnumerable<GasNettoImportModel> Get(int startYear, int endYear)
         {
-            // load csv from url into model
-            string csvfileUrl = "https://bfe-energy-dashboard-ogd.s3.amazonaws.com/ogd111_gas_nettoimport.csv";
-
             var csvLoader = new CsvDataAccessor();
 
-            var result = csvLoader.GetCSVFromUrl<GasNettoImportModel>(csvfileUrl);
+            var result = csvLoader.GetCSVFromUrl<GasNettoImportModel>(_csvUrl);
 
             result = result.Where(x => x.Jahr >= startYear && x.Jahr <= endYear);
 

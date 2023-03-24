@@ -10,21 +10,22 @@ namespace bfe.energiedashboard.landesundenergieverbrauch.Controllers
     public class DailyGasFlowInAndOutOfCHController : ControllerBase
     {
         private readonly ILogger<DailyGasFlowInAndOutOfCHController> _logger;
+        // load csv from url into model
+        private readonly string _csvUrl;
+
 
         public DailyGasFlowInAndOutOfCHController(ILogger<DailyGasFlowInAndOutOfCHController> logger)
         {
             _logger = logger;
+            _csvUrl = "https://bfe-energy-dashboard-ogd.s3.amazonaws.com/ogd101_gas_import_export.csv";
         }
 
 
         [HttpGet(Name = "GetDailyGasFlowInAndOutOfCH")]
         public IEnumerable<DailyGasFlowInAndOutOfCHModel> Get()
         {
-            // load csv from url into model
-            string csvfileUrl = "https://bfe-energy-dashboard-ogd.s3.amazonaws.com/ogd101_gas_import_export.csv";
-
             var csvLoader = new CsvDataAccessor();
-            var result = csvLoader.GetCSVFromUrl<DailyGasFlowInAndOutOfCHModel>(csvfileUrl);
+            var result = csvLoader.GetCSVFromUrl<DailyGasFlowInAndOutOfCHModel>(_csvUrl);
 
             return result;
         }
@@ -33,12 +34,9 @@ namespace bfe.energiedashboard.landesundenergieverbrauch.Controllers
         [HttpGet("{startDate}", Name = "GetDailyGasFlowInAndOutOfCHByStartDate")]
         public IEnumerable<DailyGasFlowInAndOutOfCHModel> Get(DateTime startDate)
         {
-            // load csv from url into model
-            string csvfileUrl = "https://bfe-energy-dashboard-ogd.s3.amazonaws.com/ogd101_gas_import_export.csv";
-
             var csvLoader = new CsvDataAccessor();
 
-            var result = csvLoader.GetCSVFromUrl<DailyGasFlowInAndOutOfCHModel>(csvfileUrl);
+            var result = csvLoader.GetCSVFromUrl<DailyGasFlowInAndOutOfCHModel>(_csvUrl);
 
             result = result.Where(x => x.Datum >= startDate);
 

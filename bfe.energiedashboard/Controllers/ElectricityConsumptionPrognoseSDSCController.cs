@@ -11,23 +11,22 @@ namespace bfe.energiedashboard.landesundenergieverbrauch.Controllers
     {
         private readonly ILogger<ElectricityConsumptionPrognoseSDSCController> _logger;
 
-        private string _csvUrl = "";
+        // load csv from url into model
+        private readonly string _csvUrl;
 
         public ElectricityConsumptionPrognoseSDSCController(ILogger<ElectricityConsumptionPrognoseSDSCController> logger)
         {
             _logger = logger;
-            _csvUrl = "";
+            
+            _csvUrl = "https://bfe-energy-dashboard-ogd.s3.amazonaws.com/ogd110_strom_verbrauch_prognose.csv";
         }
 
 
         [HttpGet(Name = "GetElectricityConsumptionPrognoseSDSC")]
         public IEnumerable<ElectricityConsumptionPrognoseSDSCModel> Get()
         {
-            // load csv from url into model
-            string csvfileUrl = "https://bfe-energy-dashboard-ogd.s3.amazonaws.com/ogd110_strom_verbrauch_prognose.csv";
-
             var csvLoader = new CsvDataAccessor();
-            var result = csvLoader.GetCSVFromUrl<ElectricityConsumptionPrognoseSDSCModel>(csvfileUrl);
+            var result = csvLoader.GetCSVFromUrl<ElectricityConsumptionPrognoseSDSCModel>(_csvUrl);
 
             return result;
         }
@@ -36,12 +35,9 @@ namespace bfe.energiedashboard.landesundenergieverbrauch.Controllers
         [HttpGet("{startDate}", Name = "GetElectricityConsumptionSDSCByStartDate")]
         public IEnumerable<ElectricityConsumptionPrognoseSDSCModel> Get(DateTime startDate)
         {
-            // load csv from url into model
-            string csvfileUrl = "https://bfe-energy-dashboard-ogd.s3.amazonaws.com/ogd110_strom_verbrauch_prognose.csv";
-
             var csvLoader = new CsvDataAccessor();
 
-            var result = csvLoader.GetCSVFromUrl<ElectricityConsumptionPrognoseSDSCModel>(csvfileUrl);
+            var result = csvLoader.GetCSVFromUrl<ElectricityConsumptionPrognoseSDSCModel>(_csvUrl);
 
             result = result.Where(x => x.Datum >= startDate);
 
