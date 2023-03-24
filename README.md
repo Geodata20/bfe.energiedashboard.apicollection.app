@@ -11,8 +11,6 @@ This Service relies on the availablity of given csv-files on opendata.swiss.
 
 You can either start the solution from Visual Studio, or run it without the debugger by opening a Terminal.
 
-```
-
 ## Deployment
 
 The app is deployed on [Hidora](https://hidora.io/), a swiss host that utilizes the [Jelastic Platform](https://jelastic.com/). It has some quirks and necessary adjustments to the configuration of the application:
