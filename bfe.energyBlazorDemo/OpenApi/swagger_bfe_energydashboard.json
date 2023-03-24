@@ -1,0 +1,731 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "bfe.energiedashboard",
+    "version": "1.0"
+  },
+  "paths": {
+    "/DailyElectricityFlowInAndOutCH": {
+      "get": {
+        "tags": [
+          "DailyElectricityFlowInAndOutCH"
+        ],
+        "operationId": "GetDailyElectricityFlowInAndOutCH",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DailyElectricityFlowInAndOutOfCHModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DailyElectricityFlowInAndOutOfCHModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DailyElectricityFlowInAndOutOfCHModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DailyElectricityFlowInAndOutCH/{startDate}": {
+      "get": {
+        "tags": [
+          "DailyElectricityFlowInAndOutCH"
+        ],
+        "operationId": "GetDailyElectricityFlowInAndOutCHByStartDate",
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DailyElectricityFlowInAndOutOfCHModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DailyElectricityFlowInAndOutOfCHModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DailyElectricityFlowInAndOutOfCHModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DailyGasFlowInAndOutOfCH": {
+      "get": {
+        "tags": [
+          "DailyGasFlowInAndOutOfCH"
+        ],
+        "operationId": "GetDailyGasFlowInAndOutOfCH",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DailyGasFlowInAndOutOfCHModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DailyGasFlowInAndOutOfCHModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DailyGasFlowInAndOutOfCHModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DailyGasFlowInAndOutOfCH/{startDate}": {
+      "get": {
+        "tags": [
+          "DailyGasFlowInAndOutOfCH"
+        ],
+        "operationId": "GetDailyGasFlowInAndOutOfCHByStartDate",
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DailyGasFlowInAndOutOfCHModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DailyGasFlowInAndOutOfCHModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DailyGasFlowInAndOutOfCHModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ElectricityConsumption": {
+      "get": {
+        "tags": [
+          "ElectricityConsumption"
+        ],
+        "operationId": "GetElectricityConsumption",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElectricityConsumptionNationalAndEnduserModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElectricityConsumptionNationalAndEnduserModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElectricityConsumptionNationalAndEnduserModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ElectricityConsumption/{startDate}": {
+      "get": {
+        "tags": [
+          "ElectricityConsumption"
+        ],
+        "operationId": "GetElectricityConsumptionNationalAndEnduserByStartDate",
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElectricityConsumptionNationalAndEnduserModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElectricityConsumptionNationalAndEnduserModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElectricityConsumptionNationalAndEnduserModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ElectricityConsumptionPrognoseSDSC": {
+      "get": {
+        "tags": [
+          "ElectricityConsumptionPrognoseSDSC"
+        ],
+        "operationId": "GetElectricityConsumptionPrognoseSDSC",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElectricityConsumptionPrognoseSDSCModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElectricityConsumptionPrognoseSDSCModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElectricityConsumptionPrognoseSDSCModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ElectricityConsumptionPrognoseSDSC/{startDate}": {
+      "get": {
+        "tags": [
+          "ElectricityConsumptionPrognoseSDSC"
+        ],
+        "operationId": "GetElectricityConsumptionSDSCByStartDate",
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElectricityConsumptionPrognoseSDSCModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElectricityConsumptionPrognoseSDSCModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElectricityConsumptionPrognoseSDSCModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ElectricityPrice": {
+      "get": {
+        "tags": [
+          "ElectricityPrice"
+        ],
+        "operationId": "GetElectricityPriceEnduser",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElectricityPriceEnduserModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElectricityPriceEnduserModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElectricityPriceEnduserModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/GasNettoImport": {
+      "get": {
+        "tags": [
+          "GasNettoImport"
+        ],
+        "operationId": "GetGasNettoImport",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GasNettoImportModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GasNettoImportModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GasNettoImportModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/GasNettoImport/{startYear}/{endYear}": {
+      "get": {
+        "tags": [
+          "GasNettoImport"
+        ],
+        "operationId": "GetGasNettoImportByYearRange",
+        "parameters": [
+          {
+            "name": "startYear",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "endYear",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GasNettoImportModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GasNettoImportModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GasNettoImportModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/GasStorageLevelEU": {
+      "get": {
+        "tags": [
+          "GasStorageLevelEU"
+        ],
+        "operationId": "GetGasStorageLevel",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GasStorageLevelEuModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GasStorageLevelEuModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GasStorageLevelEuModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DailyElectricityFlowInAndOutOfCHModel": {
+        "type": "object",
+        "properties": {
+          "datetime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "aT_CH_MW": {
+            "type": "number",
+            "format": "double"
+          },
+          "dE_CH_MW": {
+            "type": "number",
+            "format": "double"
+          },
+          "fR_CH_MW": {
+            "type": "number",
+            "format": "double"
+          },
+          "iT_CH_MW": {
+            "type": "number",
+            "format": "double"
+          },
+          "cH_AT_MW": {
+            "type": "number",
+            "format": "double"
+          },
+          "cH_DE_MW": {
+            "type": "number",
+            "format": "double"
+          },
+          "cH_FR_MW": {
+            "type": "number",
+            "format": "double"
+          },
+          "cH_IT_MW": {
+            "type": "number",
+            "format": "double"
+          },
+          "nettoimport": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DailyGasFlowInAndOutOfCHModel": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "aT_CH_GWh": {
+            "type": "number",
+            "format": "double"
+          },
+          "dE_CH_GWh": {
+            "type": "number",
+            "format": "double"
+          },
+          "fR_CH_GWh": {
+            "type": "number",
+            "format": "double"
+          },
+          "iT_CH_GWh": {
+            "type": "number",
+            "format": "double"
+          },
+          "cH_AT_GWh": {
+            "type": "number",
+            "format": "double"
+          },
+          "cH_DE_GWh": {
+            "type": "number",
+            "format": "double"
+          },
+          "cH_FR_GWh": {
+            "type": "number",
+            "format": "double"
+          },
+          "cH_IT_GWh": {
+            "type": "number",
+            "format": "double"
+          },
+          "nettoimport_CH_GWh": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ElectricityConsumptionNationalAndEnduserModel": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date"
+          },
+          "landesverbrauch_GWh": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "endverbrauch_GWh": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ElectricityConsumptionPrognoseSDSCModel": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endverbrauch_Prognose_Min_GWh": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "endverbrauch_Prognose_Mittel_GWh": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "endverbrauch_Prognose_Max_GWh": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ElectricityPriceEnduserModel": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "preis_LIK_indexiert": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GasNettoImportModel": {
+        "type": "object",
+        "properties": {
+          "jahr": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "monat": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "importierte_Energie_GWh": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GasStorageLevelEuModel": {
+        "type": "object",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "speicherregion": {
+            "type": "string",
+            "nullable": true
+          },
+          "speicherstand_TWh": {
+            "type": "number",
+            "format": "double"
+          },
+          "lagerkapazitaet_prozent": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
