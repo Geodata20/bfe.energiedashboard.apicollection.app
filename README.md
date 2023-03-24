@@ -2,8 +2,7 @@
 
 ## Scope
 
-This repository contains 
-A simple WEBAPI .NET 6 solution to access public csv-files from opendata.swiss - energiedashboard and present them as api for further usage by applications.
+This repository contains a simple WEBAPI .NET 6 solution to access public csv-files from opendata.swiss - energiedashboard and present them as api for further usage by applications.
 
 ## Set-up
 
