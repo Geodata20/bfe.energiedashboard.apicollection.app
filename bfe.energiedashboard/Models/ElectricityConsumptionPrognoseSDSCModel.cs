@@ -1,6 +1,6 @@
 ﻿namespace bfe.energiedashboard.landesundenergieverbrauch.Models
 {
-    public class StromverbrauchPrognoseSDSCModel
+    public class ElectricityConsumptionPrognoseSDSCModel
     {
         public DateTime Datum { get; set; }
 

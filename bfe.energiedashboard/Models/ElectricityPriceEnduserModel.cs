@@ -1,6 +1,6 @@
 ﻿namespace bfe.energiedashboard.landesundenergieverbrauch.Models
 {
-    public class EnergyPriceEnduserModel
+    public class ElectricityPriceEnduserModel
     {
         public DateTime Datum { get; set; }
 

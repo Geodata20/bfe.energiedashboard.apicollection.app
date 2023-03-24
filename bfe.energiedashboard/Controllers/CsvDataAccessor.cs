@@ -11,7 +11,7 @@ namespace bfe.energiedashboard.landesundenergieverbrauch.Controllers
 
         public IEnumerable<T> GetCSVFromUrl<T>(string url)
         {
-            var result = new List<EnergyConsuptionNationalAndEnduserModel>();
+            var result = new List<ElectricityConsumptionNationalAndEnduserModel>();
 
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
             HttpWebResponse resp = (HttpWebResponse)req.GetResponse();

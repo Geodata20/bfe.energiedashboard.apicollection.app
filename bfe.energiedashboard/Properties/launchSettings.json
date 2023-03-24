@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "bfe.energiedashboard.landesundenergieverbrauch": {
+    "bfe.energiedashboard": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

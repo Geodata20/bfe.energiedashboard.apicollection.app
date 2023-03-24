@@ -7,25 +7,25 @@ namespace bfe.energiedashboard.landesundenergieverbrauch.Controllers
 
     [ApiController]
     [Route("[controller]")]
-    public class EnergyPriceController : ControllerBase
+    public class ElectricityPriceController : ControllerBase
     {
-        private readonly ILogger<EnergyPriceController> _logger;
+        private readonly ILogger<ElectricityPriceController> _logger;
 
-        public EnergyPriceController(ILogger<EnergyPriceController> logger)
+        public ElectricityPriceController(ILogger<ElectricityPriceController> logger)
         {
             _logger = logger;
         }
 
 
-        [HttpGet(Name = "GetEnergyPriceEnduser")]
-        public IEnumerable<EnergyPriceEnduserModel> Get()
+        [HttpGet(Name = "GetElectricityPriceEnduser")]
+        public IEnumerable<ElectricityPriceEnduserModel> Get()
         {
             // load csv from url into model
             string csvfileUrl = "https://bfe-energy-dashboard-ogd.s3.amazonaws.com/ogd106_preise_strom_endverbrauch.csv";
 
             var csvLoader = new CsvDataAccessor();
 
-            return csvLoader.GetCSVFromUrl<EnergyPriceEnduserModel>(csvfileUrl);
+            return csvLoader.GetCSVFromUrl<ElectricityPriceEnduserModel>(csvfileUrl);
         }
 
 

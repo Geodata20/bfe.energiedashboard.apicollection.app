@@ -1,8 +1,8 @@
 namespace bfe.energiedashboard.landesundenergieverbrauch.Models
 {
-    public class EnergyConsuptionNationalAndEnduserModel
+    public class ElectricityConsumptionNationalAndEnduserModel
     {
-        public DateTime Datum { get; set; }
+        public DateOnly Datum { get; set; }
 
         public int Landesverbrauch_GWh { get; set; }
 
